@@ -40,4 +40,5 @@ python -m esptool --chip esp32c5 --port COM4 --baud 460800 \
 ## Notes
 
 - **BLE Detect Devices** only shows Flipper Zero, AirTags, and suspected skimmers — not all BLE devices. This is by design.
-- NM-BR-bot HAT modules share GPIO 8/9 via DIP switches. Only one module active at a time (NFC or IR, not both).
+- **Shared pins warning:** IO8/IO9 are shared between NFC (I2C SCL/SDA) and IR (TX/RX). IO10 is shared between SD card CS and NRF24 CSN. Never connect both modules on a shared pair at the same time — you need DIP switches or manual disconnect to isolate them. The NM-BR-bot HAT handles this with onboard DIP switches, but you can wire your own switches if building a custom setup.
+- See [PINOUT.md](PINOUT.md) for full GPIO reference.
