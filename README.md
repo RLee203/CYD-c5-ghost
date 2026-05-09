@@ -29,12 +29,24 @@ Pre-built firmware for the **NM-CYD-C5** board (ESP32-C5 + 2.8" ST7789 touchscre
 
 Requires [esptool](https://github.com/espressif/esptool) (`pip install esptool`).
 
+### Option 1 — Split files (3 bins)
+
 ```bash
-python -m esptool --chip esp32c5 --port (COM) --baud 460800 \
-  write_flash --flash_mode dio --flash_size 16MB --flash_freq 80m \
+python -m esptool --chip esp32c5 --port YOUR_COM_PORT --baud 460800 \
+  write_flash --flash-mode dio --flash-size 16MB --flash-freq 80m \
   0x2000  bootloader.bin \
   0x8000  partition-table.bin \
   0x10000 Ghost_ESP_IDF.bin
+```
+
+### Option 2 — Merged single file
+
+All three images are combined into one file starting at offset `0x0`.
+
+```bash
+python -m esptool --chip esp32c5 --port YOUR_COM_PORT --baud 460800 \
+  write_flash --flash-mode dio --flash-size 16MB --flash-freq 80m \
+  0x0 Ghost_ESP_IDF_merged.bin
 ```
 
 ## Notes
