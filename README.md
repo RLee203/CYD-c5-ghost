@@ -1,4 +1,4 @@
-# GhostESP — NM-CYD-C5 Firmware (IR + BLE + Portal Fixes)
+# GhostESP — NM-CYD-C5 w/NM-RF-HAT Firmware (IR + BLE + Portal Fixes)
 
 Pre-built firmware for the **NM-CYD-C5** board (ESP32-C5 + 2.8" ST7789 touchscreen).
 
