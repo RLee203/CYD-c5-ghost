@@ -83,11 +83,13 @@ Only one CS/CSN line is pulled low at a time.
 
 ---
 
-## Speaker
+## GPS (UART RX only)
 
-| Signal | GPIO |
-|--------|------|
-| IN     | IO26 |
+| Signal   | GPIO | Baud  |
+|----------|------|-------|
+| RX       | IO5  | 9600  |
+
+> Connect GPS TX → IO5. Only RX is used (read-only).
 
 ---
 
